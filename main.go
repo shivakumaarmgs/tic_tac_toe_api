@@ -34,7 +34,7 @@ func gamesHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Responds with the json body from request
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(i)
+	err = json.NewEncoder(w).Encode(i)
 	if err != nil {
 		http.Error(w, "Error while producing output", http.StatusInternalServerError)
 		return
